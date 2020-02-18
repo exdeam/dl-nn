@@ -1,0 +1,89 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block title %}
+  {% if category %} {{ category.name }} {% else %} Страница товаров {% endif %}
+{% endblock %}
+
+{% block menu2 %}
+  {% for cat in categories %}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ cat.get_absolute_url }}">{{ cat.name }}</a><br />
+    </li>
+  {% endfor %}
+{% endblock %}
+
+{% block vibors %}
+    <!-- Блок с иконками -->
+    <br><br>
+    <div id="comp_ded65960fef02c1ca23cb666888bb2e5">
+        <div class="container">
+            <h2>Просто выбери свой стиль, остальное сделаем мы</h2>
+            <div class="underline"></div>
+            <div class="advantages">
+              <div class="row">
+                <div class="col-md block text-center">
+                  <a href="#">
+                    <div class="image">
+                      <img data-src="/upload/iblock/a70/a700a0a4a9e7d895e537a708ec945a74.png" alt="" src="{% static "img/a700a0a4a9e7d895e537a708ec945a74.png" %}">              
+                    </div>
+                    Замер помещения            
+                  </a>
+                </div>                 
+                <div class="col-md block text-center">
+                      <a href="#">
+                          <div class="image">
+                              <img data-src="/upload/iblock/fca/fca210b41fde6e4fe2bdf4851f79355f.png" alt="" src="{% static "img/fca210b41fde6e4fe2bdf4851f79355f.png" %}">              </div>
+                          Компьютерный дизайн-проект в цвете            </a>
+                  </div>                 
+                <div class="col-md block text-center">
+                      <a href="#">
+                      <div class="image">
+                          <img data-src="/upload/iblock/ad5/ad5c86219301ffda00c5abcf161c2624.png" alt="" src="{% static "img/ad5c86219301ffda00c5abcf161c2624.png" %}">              </div>
+                              Доставка собственным транспортом            </a>
+                  </div>                 
+                <div class="col-md block text-center">
+                      <a href="#">
+                  <div class="image">
+                      <img data-src="/upload/iblock/88d/88d709220d3e11dea71d2f320db49b29.png" alt="" src="{% static "img/88d709220d3e11dea71d2f320db49b29.png" %}">              </div>
+                          Сборка, установка и регулировка мебели            </a>
+                  </div>                 
+                <div class="col-md block text-center">
+                      <a href="#">
+                          <div class="image">
+                              <img data-src="/upload/iblock/7eb/7eb5d09188ba2b442cead6a8fff723a3.png" alt="" src="{% static "img/7eb5d09188ba2b442cead6a8fff723a3.png" %}">              
+                            </div>
+                                  Подключение бытовой техники            </a>
+                </div>                            
+            </div>
+          </div>   
+    </div>
+    <!-- Блок с картинками тегов 3 шт -->
+    <div class="container-fluid ban_vibor"> 
+      <div class="grid">
+              {% for vib in vibor %}
+              <figure class="effect-roxy">
+                  <img class="img-fluid" src="{% if vib.image %}{{ vib.image.url }}{% else %}{% static "img/no-image.jpg"%}{% endif %}">
+                  <figcaption>
+                    <h2>{{ vib.name }}</h2>
+                    <p>просто выбери свой стиль</p>
+                    <a href="/{% if category %}{{ category.slug }}{% endif %}/{{ vib.id }}"></a><br>
+                  </figcaption>   
+              </figure>
+              {% endfor %}
+            </div>
+          </div>
+{% endblock %}
+
+{% block content %}
+  
+{% endblock %}
+
+{% block menuf %}
+  {% for cat in kategories %}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ cat.get_absolute_url }}">{{ cat.name }}</a><br />
+    </li>
+  {% endfor %}
+{% endblock %}
+

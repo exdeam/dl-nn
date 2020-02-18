@@ -1,0 +1,48 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block title %}
+  Корпусная мебель| дизайн лайф - производство Россия
+{% endblock %}
+
+{% block menu2 %}
+  {% for cat in kategory %}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ cat.get_absolute_url }}">{{ cat.name }}</a><br />
+    </li>
+  {% endfor %}
+{% endblock %}
+
+{% block content %}
+<br>
+<h1>Корпусная мебель на заказ</h1>
+<div class="underline"></div>
+<br><br>
+<div class="catalog">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+    {% for cat in kategory %}
+    <div class="col mb-4">
+      <a href="{{ cat.get_absolute_url }}">
+        <div class="card text-center">
+            <img src="{% if cat.images %}{{ cat.images.url }}{% else %}{% static "img/no-image.jpg"%}{% endif %}" class="card-img-top">
+          <div class="card-body">
+            <a href="{{ cat.get_absolute_url }}">{{ cat.name }}</a>
+          </div>
+        </div>
+      </a>
+    </div>
+    {% if forloop.counter|divisibleby:3 %}
+  </div>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+    {% endif %}
+    {% endfor %}
+</div>    
+{% endblock %}
+
+{% block menuf %}
+  {% for cat in kategory %}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ cat.get_absolute_url }}">{{ cat.name }}</a><br />
+    </li>
+  {% endfor %}
+{% endblock %}

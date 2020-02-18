@@ -1,0 +1,76 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block title %}
+  {% if category %} {{ category.name }} {% else %} Страница товаров {% endif %}
+{% endblock %}
+
+{% block menu2 %}
+  {% for cat in categories %}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ cat.get_absolute_url }}">{{ cat.name }}</a><br />
+    </li>
+  {% endfor %}
+{% endblock %}
+
+{% block content %}
+<!--breadcrumbs-->
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+    	<a itemprop="item" href="http://dl-nn.ru/">Корпусная мебель</a>
+    	<meta itemprop="position" content="1">
+    </li>
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+    	<a itemprop="item"  href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+    	<meta itemprop="position" content="2">
+    </li>
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" active aria-current="page">
+    	{{ tags_s.name }}
+    	<meta itemprop="position" content="3">
+    </li>
+  </ol>
+</nav>
+<!--End breadcrumbs-->
+<div class="page">
+	<h1>{% if category %} {{ category.name }} {% else %} Страница товаров {% endif %}</h1>
+	<div class="underline"></div>
+    <div class="textbl"></div>
+    <!-- Фильтр тегов --> 
+   	<div class="filter">
+		{% for tag in tags %}<a href="{{ category.get_absolute_url }}{{tag.id}}">{{tag.name}}</a> {% endfor %}									
+	</div>
+	</div>
+	<br><br><br><br>
+	<!-- Вывод товаров -->
+	<div class="catalog">
+	  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+	    {% for pr in products %}
+	    <div class="col mb-4">
+	      <a href="{{pr.get_absolute_url}}">
+	        <div class="card text-center">
+	            	<img class="img-fluid" src="{% if pr.imagemed %}{{ pr.imagemed.url }}{% else %}{% static "img/no-image.jpg"%}{% endif %}">
+	            <div class="card-body">
+	            	<a href="{{pr.get_absolute_url}}">{{pr.name}}</a>
+	            	<p>{{pr.anonce}}</p>
+	            	<p class="price_card"><span></span>Цена от {{pr.price}} рублей</p>
+	            </div>
+	        </div>
+	      </a>
+	    </div>
+	    {% if forloop.counter|divisibleby:3 %}
+	  </div>
+	  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+	    {% endif %}
+	    {% endfor %}
+	</div>
+</div>
+{% endblock %}
+
+{% block menuf %}
+  {% for cat in categories %}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ cat.get_absolute_url }}">{{ cat.name }}</a><br />
+    </li>
+  {% endfor %}
+{% endblock %}

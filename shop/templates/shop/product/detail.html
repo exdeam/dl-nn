@@ -1,0 +1,120 @@
+{% extends "shop/base.html" %}
+
+{% load static %}
+
+{% block title %}
+  {% if category %} {{ category.name }} {% endif %} {{ product.name }}
+{% endblock %}
+
+{% block menu2 %}
+  {% for cat in category %}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ cat.get_absolute_url }}">{{ cat.name }}</a><br />
+    </li>
+  {% endfor %}
+{% endblock %}
+
+{% block content %}
+<!--breadcrumbs-->
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+      <a itemprop="item" href="http://dl-nn.ru/">Корпусная мебель</a>
+      <meta itemprop="position" content="1">
+    </li>
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+      <a itemprop="item" href="{{ product.category.get_absolute_url }}">{{ product.category.name }}</a>
+      <meta itemprop="position" content="2">
+    </li>
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" active aria-current="page">
+      {{ product.name }}
+      <meta itemprop="position" content="3">
+    </li>
+  </ol>
+</nav>
+<!--End breadcrumbs-->
+<h1>{% if product %} {{ product.name }} {% else %} Страница товара {% endif %}</h1>
+  <div class="underline"></div>
+  <br>
+  <div class="row">
+    <div class="col-md-8"> 
+      <div class="gallery forplashh kuhkuh">
+      <script type="text/javascript">
+        $(function () {
+          $('.slider-for').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            fade: true,
+            asNavFor: '.slider-nav'
+          });
+          $('.slider-nav').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            asNavFor: '.slider-for',
+            dots: false,
+            centerMode: true,
+            focusOnSelect: true
+          });
+        });
+ </script>  
+        <div class="slider-for">
+          <div><img class="img-fluid" src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no-image.jpg"%}{% endif %}" alt=""></div>
+          {% if product.image2 %}<div><img class="img-fluid" src="{{ product.image2.url }}" alt=""></div>{% endif %}
+          {% if product.image3 %}<div><img class="img-fluid" src="{{ product.image3.url }}" alt=""></div>{% endif %}
+          {% if product.image4 %}<div><img class="img-fluid" src="{{ product.image4.url }}" alt=""></div>{% endif %}
+        </div>
+        <div class="slider-nav">
+              <div><img class="img-fluid" src="{% if product.imagesm %}{{ product.imagesm.url }}{% else %}{% static "img/no-image.jpg"%}{% endif %}" alt=""></div>
+              {% if product.imagesm2 %}<div><img class="img-fluid" src="{{ product.imagesm2.url }}" alt=""></div>{% endif %}
+              {% if product.imagesm3 %}<div><img class="img-fluid" src="{{ product.imagesm3.url }}" alt=""></div>{% endif %}
+              {% if product.imagesm4 %}<div><img class="img-fluid" src="{{ product.imagesm4.url }}" alt=""></div>{% endif %}
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-4">
+        <div class="gallery_info">
+          <div>
+            <div class="block_info pricesskuh">
+              <div class="pricekuhh">
+                <div>
+                  <p>
+                    <a href="#" class="price_window" vid="0"><span class="cenatext">Цена</span> 80 596 руб. <span class="zvezdatext">*</span></a>
+                  </p>
+                </div>
+              </div>        
+              
+          </div>                   
+          <div class="block_info ">                     
+            <button type="button" class="btn btn-2 btn-2c btn-4 b24-web-form-popup-btn-2">ЗАПИСАТЬСЯ В САЛОН</button>
+            <div attr-id="" class="liked add-to-wishlist kuhaddizb">
+          </div>  
+          <div class="sharekuhblock">
+            <p class="sharekuh">Поделитесь с друзьями</p>
+            <div class="social">
+                <a href="https://vk.com/dezign_life" class="social-icon vk" target="_blank"><img src="{% static "img/vk.png" %}"></a>
+                <a href="https://www.instagram.com/dezign_life" class="social-icon google" target="_blank"><img src="{% static "img/inst.png" %}"></a>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>      
+
+        <!-- Вкладки панелей --> 
+      
+ 
+        
+  
+{% endblock %}
+
+{% block menuf %}
+  {% for cat in kategory %}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ cat.get_absolute_url }}">{{ cat.name }}</a><br />
+    </li>
+  {% endfor %}
+{% endblock %}

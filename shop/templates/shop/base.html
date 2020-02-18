@@ -1,0 +1,226 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="shortcut icon" href="{% static "img/favicon.png" %}" type="image/png">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="{% static "css/slick.css" %}" type="text/css" %}" rel="stylesheet">
+    <link href="{% static "css/slick-theme.css" %}" type="text/css" %}" rel="stylesheet">    
+    <script src="{% static "js/slick.min.js" %}" type="text/javascript" async=""></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:700|Roboto+Condensed:400,300|Fira+Sans:700&amp;subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+        <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <div class="header_bottom">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 mr-auto">
+                    <a class="navbar-brand" href="http://dl-nn.ru/">
+                        <img src="{% static "img/logo.png" %}">
+                    </a>
+                </div>
+                <div class="col-md-6 col-sm-6 menu1 ml-auto">
+                    <ul class="navbar-nav hmenu">
+                            <li class="nav-item">
+                                <a class="nav-link back_call" href="tel:+78312128024"><span></span>+7 (831) 212-80-24</a>
+                            </li>
+                            <script id="bx24_form_button" data-skip-moving="true">
+                                    (function(w,d,u,b){w['Bitrix24FormObject']=b;w[b] = w[b] || function(){arguments[0].ref=u;
+                                            (w[b].forms=w[b].forms||[]).push(arguments[0])};
+                                            if(w[b]['forms']) return;
+                                            var s=d.createElement('script');s.async=1;s.src=u+'?'+(1*new Date());
+                                            var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+                                    })(window,document,'https://b24-zn6io7.bitrix24.ru/bitrix/js/crm/form_loader.js','b24form');
+
+                                    b24form({"id":"2","lang":"ru","sec":"yewafv","type":"button","click":""});
+                            </script>
+                            <li class="nav-item hidmenu">
+                                <a class="nav-link entry_salon b24-web-form-popup-btn-2" href="#"><span></span> Запись в салон</a>
+                            </li>
+                            <li class="nav-item hidmenu">
+                                <a class="nav-link free_services b24-web-form-popup-btn-2" href="#"><span></span> Вызов замерщика </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container-my">
+    <nav>
+        <div class="form-inline">
+        <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+            <ul class="nav navbar-nav nav-fill">
+                {% block menu2 %}{% endblock %}
+            </ul>
+        </div>
+    </div>
+    </nav> 
+    </div>                   
+              
+    {% block vibors %}{% endblock %}
+    <main>
+    <!-- start cat -->
+    <div class="light_gray">
+    <div class="container-my">
+    <div class="page">{% block content %}{% endblock %} 
+
+    </div><!--end page -->
+
+    </div>
+    </div>
+    <div class="clear"></div>
+    <!-- end of cat-->
+    <!-- akcii -->
+    <div class="back_white akcii">
+        <div class="container">
+            <br>
+            <br>
+            <br>
+            <h2>Акции и скидки на кухни</h2>
+            <br>
+            <br>
+                <div class="underline"></div><center style="padding-bottom: 20px;">ФЕВРАЛЬ 2020 </center>
+                <br>
+                <br>
+                <a href="#">
+                    <div class="card top_action mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-md-12">
+                                <img class="img-fluid" alt="action" src="{% static "img/korting.jpg" %}">
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                       
+                <br><br><br>
+                <div class="col-md-12 text-center">
+                    <button type="button" class="btn btn-warning">Все акции</button>
+                </div>
+                <br><br><br>
+            </div>
+    </div>
+    <!-- end of akcii -->
+    <!-- about fabrika -->
+    <div class="back_white">
+        <div class="container">
+            <br>
+            <br>
+            <h2>Современная фабрика «Дизайн-Лайф» сегодня — больше, чем фабрика</h2>
+            <div class="underline"></div>
+            <br>
+            <br>
+            <div class="today">
+                <div class="row">
+                    <div class="col-md-3 block">
+                        <a href="#">
+                            <span>&gt; 5 000</span>
+                            <p>заказов изготовлено и установлено</p>
+                        </a>
+                    </div>
+                    <div class="col-md-3 block">
+                        <a href="#">
+                            <span>&gt; 10</span>
+                            <p>лет работы</p>
+                        </a>
+                    </div>
+                    <div class="col-md-3 block">
+                        <a href="#">
+                            <span>&gt; 2 000</span>
+                            <p>рабочих мест</p>
+                        </a>
+                    </div>
+                    <div class="col-md-3 block">
+                        <a href="#">
+                            <span>= 35 000</span>
+                            <p>м2 площадь уникального производственного комплекса мирового уровня</p>
+                        </a>
+                    </div>
+                </div>
+                <br><br><br>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <button type="button" class="btn btn-warning">Загрузить больше фактов</button>
+                    </div>
+                </div>
+                <br><br><br>
+            </div>
+        <!--Блок с видео
+        <div class="vidosblock">
+            <div class="container"><h2>Как создается кухня! </h2>
+                <div class="underline"></div>
+                <div class="vidosikmain">
+                    <iframe src="{% static "js/qKXSdh610Z4.html" %}"  allow="autoplay; encrypted-media" allowfullscreen="" width="854" height="480" frameborder="0"></iframe> 
+                </div>
+                <br>
+            </div>
+        </div>
+        END блок с видео-->
+    </div>
+</div>
+    <!--end about fabrika-->
+    <!--map contacts-->
+    <div class="back_white">
+        <div class="container">
+            <h2 id="salony">Салон продаж</h2>
+            <div class="underline"></div>
+            <br><br>
+            <h3>Нижний Новгород</h3>
+            <p>улица Невзоровых, дом 83 <strong>салон Brighthouse</strong></p>
+            <div id="comp_27cf95e00db73db2422e09fe69127575">
+                <div class="map-and-address">
+                    <div class="container" id="map">
+                        <div class="overlay" onclick="style.pointerEvents='none'"></div>
+                        <!--'start_frame_cache_map_yandex_view'-->
+                        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A88f57f14cd8f87e5e23096b504878aeeb2db20c6690eba4f4fd72ff52d45aa5f&amp;width=100%&amp;height=700&amp;lang=ru_RU&amp;scroll=true"></script>
+                        <!--end_frame_cache_map_yandex_view'-->    
+                    </div>
+                    <div class="clear"></div>  
+                      <br><br><br><br>            
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+    <!--end map contacts-->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <a href="http://dl-nn.ru/" class="logo">
+                    <img src="{% static "img/logo.png"%}" alt="">
+                </a>
+            </div>
+            <div class="col-md-4">
+                <div class="call_center">
+                    <p>Ежедневно с 10:00 до 19:00</p>
+                    <a href="tel:+78312128024">+7 (831) 212-80-24</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="social">
+                    <a href="https://vk.com/dezign_life" class="social-icon vk" target="_blank"><img src="{% static "img/vk.png" %}"></a>
+                    <a href="https://www.instagram.com/dezign_life" class="social-icon google" target="_blank"><img src="{% static "img/inst.png" %}"></a>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <nav>
+            <ul class="nav nav-fill menu">
+                {% block menuf %}{% endblock %}
+            </ul>
+        </nav>
+    </div>
+</footer>
+<!-- Это футер не трогать-->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
